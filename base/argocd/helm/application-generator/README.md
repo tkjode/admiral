@@ -39,7 +39,7 @@ flowchart LR
 
   end
 
-  subgraph managementNS ["AppProj/App Management Namespaces"]
+  subgraph managementNS ["Management Namespaces"]
     subgraph projNS1 ["Project Namespace 1"]
 
       app1a
