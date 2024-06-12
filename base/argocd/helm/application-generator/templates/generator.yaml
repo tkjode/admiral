@@ -1,50 +1,13 @@
 # Project Gen
 
 {{ foreach .Values.projects }}
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name:
-  namespace: {{ .namespace | default "argocd" }}
-spec:
-  description: {{ .description }}
-  destinations: {{ .destinations }}
-  permitOnlyProjectScopedClusters: true
-  roles: # admins
-  sourceNamespaces:
-    - #Iterate over applications list and snag target namespaces
-  sourceRepos:
-    - ME ONLY
-{{ end }}
+{{ include "project" }}
 ---
+{{ end }}
+
 # App Gen
 
 {{ foreach .Values.applications }}
-{{ with .Values.applications.xyz }}
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: {{ .name }}
-  namespace: {{ .namespace }}
-spec:
-  destination:
-    namespace: {{ .destination.namespace }}
-  ignoreDifferences:
-    {{foreach .ignores}}{{end}}
-  project: {{ .projectName }}
-  source:
-    path: {{ .libraryPath }}
-  syncPolicy:
-    automated:
-      allowEmpty: {{ .allowEmpty }}
-      prune: {{ .prune }}
-      selfHeal: {{ .selfHeal }}
-    retry:
-      backoff: {{ .backoff }}
-      limit: {{ .limit }}
-    syncOptions:
-    {{ foreach .syncOptions }}{{ . }}{{ end }}
+{{ include "application" }}
+---
 {{ end }}
-{{ end }}
-
---

@@ -1,0 +1,16 @@
+{{ template "appproject" }}
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name:
+  namespace: {{ .namespace | default "argocd" }}
+spec:
+  description: {{ .description }}
+  destinations: {{ .destinations }}
+  permitOnlyProjectScopedClusters: true
+  roles: # admins
+  sourceNamespaces:
+    - #Iterate over applications list and snag target namespaces
+  sourceRepos:
+    - ME ONLY
+{{ end }}

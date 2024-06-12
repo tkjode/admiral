@@ -1,0 +1,25 @@
+{{ template "application" }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}
+  namespace: {{ .namespace }}
+spec:
+  destination:
+    namespace: {{ .destination.namespace }}
+  ignoreDifferences:
+    {{foreach .ignores}}{{end}}
+  project: {{ .projectName }}
+  source:
+    path: {{ .libraryPath }}
+  syncPolicy:
+    automated:
+      allowEmpty: {{ .allowEmpty }}
+      prune: {{ .prune }}
+      selfHeal: {{ .selfHeal }}
+    retry:
+      backoff: {{ .backoff }}
+      limit: {{ .limit }}
+    syncOptions:
+    {{ foreach .syncOptions }}{{ . }}{{ end }}
+{{ end }}
