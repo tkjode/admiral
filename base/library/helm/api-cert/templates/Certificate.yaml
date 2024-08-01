@@ -1,12 +1,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: ingress-cert
-  namespace: openshift-ingress
+  name: api-cert
+  namespace: openshift-config
 spec:
-  commonName: apps.plaid.phalnet.com
+  commonName: api.plaid.phalnet.com
   dnsNames:
-  - '*.apps.plaid.phalnet.com'
+  - 'api.plaid.phalnet.com'
   isCA: false
   issuerRef:
     group: cert-manager.io
