@@ -1,0 +1,7 @@
+# Some things to work on
+
+- [ ] Make the Certs library/feature generic enough to re-use leveraging Values.yaml
+- [ ] Need to figure out how to supply a Patcher manifest (maybe a Job that oc applies a patch) to update the apiserver to a new cert
+- [ ] Keycloak needs a database for persistence and a KeycloakRealmImport to auto-setup UnderdarkAuthServices Realm.
+- [ ] Finalize applications/library folder structures for the bootstrapper ArgoCD App
+- [ ] Visualize the SyncWaves to boot a cluster up
