@@ -1,7 +1,35 @@
 # Some things to work on
 
+- What's the difference between Feature and Library again?
 - [ ] Make the Certs library/feature generic enough to re-use leveraging Values.yaml
 - [ ] Need to figure out how to supply a Patcher manifest (maybe a Job that oc applies a patch) to update the apiserver to a new cert
-- [ ] Keycloak needs a database for persistence and a KeycloakRealmImport to auto-setup UnderdarkAuthServices Realm.
+- [x] Keycloak needs a database for persistence and a KeycloakRealmImport to auto-setup ~~UnderdarkAuthServices~~ PhalNet Realm.
 - [ ] Finalize applications/library folder structures for the bootstrapper ArgoCD App
 - [ ] Visualize the SyncWaves to boot a cluster up
+
+## Operator General
+
+- [ ] Feature that installs OLM on base k8s clusters
+
+## Secrets Stack
+
+- [ ] External Secrets Operator installation
+- [ ] ESO Config:
+  - [ ] Cluster Vault Config
+
+## Cert Stack
+
+- [ ] cert-manager operator installation
+- [ ] LetsEncrypt ACME configurizer (should include staging & prod as values instances)
+  - [ ] ExternalSecrets should be used to house the AWS Route53 role data here
+
+## Auth Stack
+
+- CrunchyData Operator Installation & Instancing
+- KeyCloak Operator Installation & Instancing
+- KeyCloak RealmImport Data (Realm: phalnet)
+  - Can the role mappings stuff be included in the import?  This allows Keycloak roles to auto-create Groups
+  - https://blog.badgerops.net/keycloak-open-shift/   simple guide on doing it manually
+- OAuth/cluster refinement - Syncwave Update post Keycloak install
+  - Add Identity Provider to the cluster
+  - How to get clientSecret sync'd over?  The key/value is not an object, it's in Postgres :/
