@@ -1,0 +1,26 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - mappingMethod: claim
+    name: phalnet
+    openID:
+      claims:
+        email:
+        - email
+        groups:
+        - groups
+        name:
+        - nickname
+        - given_name
+        - name
+        preferredUsername:
+        - preferred_username
+        - email
+      clientID: plaid-auth
+      clientSecret:
+        name: keycloak-client-secret
+      issuer: https://keycloak.apps.plaid.phalnet.com/realms/phalnet
+    type: OpenID

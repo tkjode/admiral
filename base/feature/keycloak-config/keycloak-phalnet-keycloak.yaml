@@ -1,14 +1,10 @@
 apiVersion: k8s.keycloak.org/v2alpha1
 kind: Keycloak
 metadata:
-  creationTimestamp: "2024-07-26T12:55:37Z"
-  generation: 10
   labels:
     app: sso
   name: phalnet-keycloak
   namespace: keycloak
-  resourceVersion: "39725131"
-  uid: 3ee5ca75-f0fc-4a10-9d66-3c4343fcee1b
 spec:
   additionalOptions:
     - name: db-password
@@ -36,23 +32,3 @@ spec:
     className: openshift-default
     enabled: true
   instances: 1
-status:
-  conditions:
-  - lastTransitionTime: "2024-08-10T15:38:32.330518720Z"
-    message: ""
-    observedGeneration: 10
-    status: "True"
-    type: Ready
-  - lastTransitionTime: "2024-07-26T17:24:02.263036261Z"
-    message: ""
-    observedGeneration: 10
-    status: "False"
-    type: HasErrors
-  - lastTransitionTime: "2024-07-31T15:12:35.103382884Z"
-    message: ""
-    observedGeneration: 10
-    status: "False"
-    type: RollingUpdate
-  instances: 1
-  observedGeneration: 10
-  selector: app=keycloak,app.kubernetes.io/managed-by=keycloak-operator,app.kubernetes.io/instance=phalnet-keycloak
