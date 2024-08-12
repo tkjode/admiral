@@ -10,6 +10,23 @@ metadata:
   resourceVersion: "39725131"
   uid: 3ee5ca75-f0fc-4a10-9d66-3c4343fcee1b
 spec:
+  additionalOptions:
+    - name: db-password
+      secret:
+        name: keycloak-db-pguser-keycloak-db
+        key: password
+    - name: db-url-database
+      secret:
+        name: keycloak-db-pguser-keycloak-db
+        key: dbname
+    - name: db-url-host
+      secret:
+        name: keycloak-db-pguser-keycloak-db
+        key: host
+    - name: db-username
+      secret:
+        name: keycloak-db-pguser-keycloak-db
+        key: user
   hostname:
     adminUrl: https://keycloak.apps.plaid.phalnet.com
     hostname: keycloak.apps.plaid.phalnet.com
