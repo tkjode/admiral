@@ -9,20 +9,22 @@ spec:
   additionalOptions:
     - name: db-password
       secret:
-        name: keycloak-db-pguser-keycloak-db
+        name: keycloak-db-pguser-sa-kc-phalnet
         key: password
     - name: db-url-database
       secret:
-        name: keycloak-db-pguser-keycloak-db
+        name: keycloak-db-pguser-sa-kc-phalnet
         key: dbname
     - name: db-url-host
       secret:
-        name: keycloak-db-pguser-keycloak-db
+        name: keycloak-db-pguser-sa-kc-phalnet
         key: host
     - name: db-username
       secret:
-        name: keycloak-db-pguser-keycloak-db
+        name: keycloak-db-pguser-sa-kc-phalnet
         key: user
+    - name: db
+      value: postgres
   hostname:
     adminUrl: https://keycloak.apps.plaid.phalnet.com
     hostname: keycloak.apps.plaid.phalnet.com

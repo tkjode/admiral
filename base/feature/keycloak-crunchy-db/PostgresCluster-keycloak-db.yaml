@@ -1,0 +1,37 @@
+apiVersion: postgres-operator.crunchydata.com/v1beta1
+kind: PostgresCluster
+metadata:
+  name: keycloak-db
+  namespace: keycloak
+spec:
+  backups:
+    pgbackrest:
+      image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.51-1
+      repos:
+      - name: repo1
+        volume:
+          volumeClaimSpec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 4Gi
+            storageClassName: lvms-vg1
+  image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres:ubi8-16.3-1
+  instances:
+  - dataVolumeClaimSpec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 4Gi
+      storageClassName: lvms-vg1
+    name: keycloak
+    replicas: 1
+  port: 5432
+  postgresVersion: 16
+  users:
+  - databases:
+    - "keycloak"
+    name: "sa-kc-phalnet"
+    options: "SUPERUSER"
