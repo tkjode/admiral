@@ -6,6 +6,7 @@ metadata:
 spec:
   commonName: apps.plaid.phalnet.com
   dnsNames:
+  - 'apps.plaid.phalnet.com'
   - '*.apps.plaid.phalnet.com'
   isCA: false
   issuerRef:
