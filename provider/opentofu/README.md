@@ -12,3 +12,7 @@ HomeLab will ideally try to use:
 
 - Proxmox/QEMU as the virtualization provider
 - Talos OS as the Kubernetes-specific immutable VM image 
+
+## Providers
+
+- Try to use the [BPG/terraform-provider-proxmox](https://github.com/bpg/terraform-provider-proxmox) instead of telegraf
